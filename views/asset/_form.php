@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\jui\DatePicker;
 
 /** @var yii\web\View $this */
 /** @var app\models\Asset $model */
@@ -22,9 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'installation_location')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'purchase_date')->textInput() ?>
+    <?= $form->field($model, 'purchase_date')->widget(DatePicker::classname(),['language' => 'th','dateFormat' => 'yyyy-MM-dd','options' => ['class' => 'form-control']],)?>
 
-    <?= $form->field($model, 'entry_date')->textInput() ?>
+    <?= $form->field($model, 'entry_date')->widget(DatePicker::classname(),['language' => 'th','dateFormat' => 'yyyy-MM-dd','options' => ['class' => 'form-control']],) ?>
 
     <?= $form->field($model, 'asset_value')->textInput(['maxlength' => true]) ?>
 

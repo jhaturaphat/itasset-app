@@ -45,6 +45,7 @@ class Asset extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['serial_number','asset_name','asset_code'], 'unique'],            
             [['asset_code', 'asset_name', 'brand_model', 'serial_number', 'installation_location', 'entry_date', 'status', 'os', 'cpu', 'ram', 'hard_disk_size', 'storage_type', 'network'], 'required'],
             [['purchase_date', 'entry_date'], 'safe'],
             [['asset_value'], 'number'],

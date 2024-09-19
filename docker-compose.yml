@@ -1,9 +1,16 @@
 version: '2'
 services:
   php:
+    container_name: itasset_app
     image: yiisoftware/yii2-php:7.4-apache
     volumes:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       - ./:/app:delegated
     ports:
       - '8000:80'
+  mysql:
+    container_name: itasset_db
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: itasset_db

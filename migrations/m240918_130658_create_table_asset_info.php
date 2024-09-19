@@ -14,10 +14,10 @@ class m240918_130658_create_table_asset_info extends Migration
     {
         $this->createTable('{{%asset}}', [
             'server_id' => $this->primaryKey()->comment('หมายเลขอัตโนมัติ (Primary Key)'),
-            'asset_code' => $this->string(100)->notNull()->comment('รหัสครุภัณฑ์'),
-            'asset_name' => $this->string(255)->notNull()->comment('ชื่อครุภัณฑ์ เช่น เครื่องคอมพิวเตอร์แม่ข่าย'),
+            'asset_code' => $this->string(100)->notNull()->unique()->comment('รหัสครุภัณฑ์'),
+            'asset_name' => $this->string(255)->notNull()->unique()->comment('ชื่อครุภัณฑ์ เช่น เครื่องคอมพิวเตอร์แม่ข่าย'),
             'brand_model' => $this->string(255)->notNull()->comment('ยี่ห้อ / รุ่นของเครื่องแม่ข่าย'),
-            'serial_number' => $this->string(255)->notNull()->comment('หมายเลขซีเรียล (Serial Number)'),
+            'serial_number' => $this->string(255)->notNull()->unique()->comment('หมายเลขซีเรียล (Serial Number)'),
             'installation_location' => $this->string(255)->notNull()->comment('สถานที่ติดตั้ง เช่น ห้องเซิร์ฟเวอร์'),
             'purchase_date' => $this->date()->comment('วันที่ซื้อครุภัณฑ์'),
             'entry_date' => $this->date()->notNull()->comment('วันที่รับครุภัณฑ์เข้าสู่ระบบ'),
